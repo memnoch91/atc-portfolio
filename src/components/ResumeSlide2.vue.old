@@ -1,0 +1,67 @@
+<template>
+  <div
+    class="resume_slide"
+    :style="slideBySlide.inputSlide.styles"
+    v-if="setInputSlideNumber === slideBySlide.slideNumber"
+  >
+    {{ slideBySlide.inputSlide.content.text }}
+    <button class="change_slide prev_button" @click="previSlide">
+      <span>
+        <i class="far fa-caret-square-left"></i>
+      </span>
+    </button>
+    <button class="change_slide next_button" @click="nextSlide">
+      <span>
+        <i class="far fa-caret-square-right"></i>
+      </span>
+    </button>
+  </div>
+</template>
+<script>
+export default {
+  name: "ResumeSlide2",
+  props: {
+    slideBySlide: Object
+  },
+
+  methods: {
+    nextSlide(event) {
+      this.$emit("nextSlide", event);
+    },
+    previSlide(event) {
+      this.$emit("previSlide", event);
+    }
+  },
+  computed: {
+    setInputSlideNumber() {
+      return this.slideBySlide.slideNumber;
+    }
+  }
+};
+</script>
+<style lang="scss" scoped>
+@import "../../node_modules/bulma/bulma.sass";
+
+.resume_slide {
+  position: relative;
+  .prev_button,
+  .next_button {
+    position: absolute;
+  }
+  .prev_button {
+    top: 50%;
+    left: 0;
+  }
+  .next_button {
+    top: 50%;
+    right: 0;
+  }
+  .change_slide {
+    color: hotpink;
+    font-size: 24px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+  }
+}
+</style>
