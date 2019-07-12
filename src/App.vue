@@ -8,7 +8,7 @@
     </nav>
     <router-view class="hero-body" />
     <button class="button">wqeq</button>
-    <footer class="hero-foot">made by ATC shit</footer>
+    <footer class="hero-foot">made by ATC</footer>
   </div>
 </template>
 
